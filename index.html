@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solucionarte Publicidad | CDMX</title>
+    <title>Solucionarte Publicidad | Impresión Gran Formato y DTF en CDMX</title>
+    <meta name="description" content="Especialistas en impresión de lona, gran formato, DTF textil, anuncios LED y letras 3D en la Col. Algarín, CDMX. ¡Cotiza tu publicidad ahora!">
+    
     <link rel="icon" type="image/png" href="Favicon 150px-01.png">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <style>
         :root {
             --neon-magenta: #ff00ff;
@@ -26,7 +30,7 @@
             scroll-behavior: smooth;
         }
 
-        /* --- BARRA SUPERIOR --- */
+        /* --- BARRA SUPERIOR Y MENÚ HAMBURGUESA --- */
         nav {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 80px;
@@ -45,120 +49,100 @@
         }
         .nav-links a:hover { color: var(--neon-green); }
 
-        /* --- SECCIÓN VIDEO (INICIO) --- */
-        .video-section {
-            width: 100%;
-            line-height: 0;
-            border-bottom: 2px solid var(--neon-magenta);
-            position: relative;
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        .hamburger span {
+            width: 30px; height: 3px; background: var(--neon-magenta);
+            transition: 0.3s;
         }
 
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px; left: 0; width: 100%;
+                background: rgba(10, 10, 12, 0.98);
+                padding: 20px; text-align: center;
+                border-bottom: 2px solid var(--neon-magenta);
+            }
+            .nav-links.active { display: flex; }
+        }
+
+        /* --- SECCIÓN VIDEO --- */
+        .video-section { width: 100%; line-height: 0; border-bottom: 2px solid var(--neon-magenta); }
         video { width: 100%; height: auto; display: block; }
 
-        /* --- SECCIÓN SERVICIOS (ESTRUCTURA CAPTURA) --- */
-        .services-section {
-            padding: 60px 5%;
-            text-align: center;
-        }
-
+        /* --- SERVICIOS --- */
+        .services-section { padding: 60px 5%; text-align: center; }
         .services-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3rem;
-            color: white;
-            margin-bottom: 50px;
-            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif; font-size: 3rem;
+            color: white; margin-bottom: 50px; text-transform: uppercase;
         }
-
         .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            text-align: left;
-            max-width: 1200px;
-            margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px; text-align: left; max-width: 1200px; margin: 0 auto;
         }
-
         .service-column h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
-            color: white;
-            border-bottom: 3px solid var(--neon-magenta);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif; font-size: 1.8rem;
+            color: white; border-bottom: 3px solid var(--neon-magenta);
+            padding-bottom: 10px; margin-bottom: 20px;
         }
+        .service-column ul { list-style: none; padding: 0; }
+        .service-column ul li { font-size: 1.3rem; font-weight: 700; margin-bottom: 5px; }
 
-        .service-column ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        /* --- SLIDER DE TRABAJOS --- */
+        .swiper { width: 85%; max-width: 1000px; margin: 40px auto 60px; padding-bottom: 50px; }
+        .swiper-slide { display: flex; justify-content: center; }
+        .swiper-slide img {
+            width: 100%; height: 450px; object-fit: cover;
+            border-radius: 15px; border: 2px solid var(--neon-magenta);
         }
+        /* Color de flechas y puntos */
+        .swiper-button-next, .swiper-button-prev { color: var(--neon-green); }
+        .swiper-pagination-bullet { background: var(--neon-magenta); }
 
-        .service-column ul li {
-            font-size: 1.5rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-bottom: 5px;
-            color: white;
-        }
-
-        /* --- GALERÍA, MAPA Y FORMULARIO --- */
+        /* --- OTROS --- */
         section { scroll-margin-top: 80px; }
         .section-title {
             text-align: center; font-family: 'Orbitron', sans-serif;
             color: var(--neon-green); margin: 60px 0 30px; font-size: 2rem;
         }
-
-        .gallery-container {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 15px; padding: 0 8%; margin-bottom: 60px;
-        }
-        .gallery-item {
-            width: 100%; height: 280px; object-fit: cover;
-            border-radius: 10px; border: 2px solid var(--neon-magenta);
-        }
-
         .map-container { width: 100%; height: 400px; border-top: 2px solid var(--neon-magenta); border-bottom: 2px solid var(--neon-magenta); }
-        .map-container iframe { 
-            width: 100%; height: 100%; border: 0; filter: invert(90%) hue-rotate(180deg); 
-        }
-
+        .map-container iframe { width: 100%; height: 100%; border: 0; filter: invert(90%) hue-rotate(180deg); }
         .contact-section { background: #111; padding: 60px 10%; border-top: 2px solid var(--neon-green); }
-        .form-card {
-            max-width: 550px; margin: 0 auto; background: rgba(255, 255, 255, 0.02);
-            padding: 30px; border-radius: 15px; border: 1px solid #333;
-        }
-        input, textarea {
-            width: 100%; padding: 12px; margin-bottom: 15px;
-            background: #1a1a1a; border: 1px solid #444; color: white; border-radius: 5px;
-        }
-        .btn-submit {
-            width: 100%; padding: 15px; background: var(--neon-magenta); color: white;
-            border: none; font-family: 'Orbitron'; cursor: pointer;
-        }
-
-        .wa-link {
-            position: fixed; bottom: 25px; right: 25px;
-            background: #25d366; width: 60px; height: 60px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; z-index: 1000;
-        }
-
+        .form-card { max-width: 550px; margin: 0 auto; background: rgba(255, 255, 255, 0.02); padding: 30px; border-radius: 15px; border: 1px solid #333; }
+        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; background: #1a1a1a; border: 1px solid #444; color: white; border-radius: 5px; }
+        .btn-submit { width: 100%; padding: 15px; background: var(--neon-magenta); color: white; border: none; font-family: 'Orbitron'; cursor: pointer; }
+        .wa-link { position: fixed; bottom: 25px; right: 25px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; }
         footer { text-align: center; padding: 30px; background: #000; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <nav>
-        <img src="Logotipo.png" class="nav-logo" alt="Solucionarte" onerror="this.src='Logotipo500x500px-01.png';">
-        <div class="nav-links">
-            <a href="#inicio">Inicio</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#ubicacion">Ubicación</a>
-            <a href="#contacto">Contacto</a>
+        <img src="Logotipo.png" class="nav-logo" alt="Solucionarte Publicidad Logo" onerror="this.src='Logotipo500x500px-01.png';">
+        
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#inicio" onclick="toggleMenu()">Inicio</a>
+            <a href="#servicios" onclick="toggleMenu()">Servicios</a>
+            <a href="#trabajos" onclick="toggleMenu()">Trabajos</a>
+            <a href="#ubicacion" onclick="toggleMenu()">Ubicación</a>
+            <a href="#contacto" onclick="toggleMenu()">Contacto</a>
         </div>
     </nav>
 
-    <a href="https://wa.me/525638863684" class="wa-link" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35">
+    <a href="https://wa.me/525638863684" class="wa-link" target="_blank" aria-label="Chat en WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WhatsApp">
     </a>
 
     <section id="inicio" class="video-section">
@@ -168,75 +152,50 @@
     </section>
 
     <section id="servicios" class="services-section">
-        <h2 class="services-title">Servicios</h2>
+        <h2 class="services-title">Nuestros Servicios</h2>
         <div class="services-grid">
             <div class="service-column">
                 <h3>Impresión</h3>
                 <ul>
-                    <li>Lona</li>
-                    <li>Gran formato</li>
-                    <li>DTF textil</li>
-                    <li>Coroplast</li>
-                    <li>Trovicel</li>
-                    <li>Vinil</li>
+                    <li>Lona</li><li>Gran formato</li><li>DTF textil</li><li>Coroplast</li><li>Trovicel</li><li>Vinil</li>
                 </ul>
             </div>
             <div class="service-column">
                 <h3>Productos</h3>
                 <ul>
-                    <li>Letras 3D</li>
-                    <li>Anuncios LED</li>
-                    <li>Playeras</li>
-                    <li>Gorras</li>
-                    <li>Tazas</li>
+                    <li>Letras 3D</li><li>Anuncios LED</li><li>Playeras</li><li>Gorras</li><li>Tazas</li>
                 </ul>
             </div>
             <div class="service-column">
                 <h3>Publicidad</h3>
                 <ul>
-                    <li>Offset</li>
-                    <li>Impresión digital</li>
-                    <li>Volantes</li>
-                    <li>Tarjetas</li>
-                    <li>Tabloides</li>
+                    <li>Offset</li><li>Impresión digital</li><li>Volantes</li><li>Tarjetas</li><li>Tabloides</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <h2 class="section-title">NUESTROS TRABAJOS</h2>
-    <div class="gallery-container">
-        <img src="galeriasolucionarte.webp" class="gallery-item" alt="Trabajo de Publicidad 1">
-        <img src="galeriasolucionarte-2.webp" class="gallery-item" alt="Trabajo de Publicidad 2">
-        <img src="galeriasolucionarte-3.webp" class="gallery-item" alt="Trabajo de Publicidad 3">
-        <img src="galeriasolucionarte-4.webp" class="gallery-item" alt="Trabajo de Publicidad 4">
-        <img src="galeriasolucionarte-5.webp" class="gallery-item" alt="Trabajo de Publicidad 5">
-        <img src="galeriasolucionarte-6.webp" class="gallery-item" alt="Trabajo de Publicidad 6">
-        <img src="galeriasolucionarte-7.webp" class="gallery-item" alt="Trabajo de Publicidad 7">
-        <img src="galeriasolucionarte-8.webp" class="gallery-item" alt="Trabajo de Publicidad 8">
-        <img src="galeriasolucionarte-9.webp" class="gallery-item" alt="Trabajo de Publicidad 9">
-        <img src="galeriasolucionarte-10.webp" class="gallery-item" alt="Trabajo de Publicidad 10">
-        <img src="galeriasolucionarte-11.webp" class="gallery-item" alt="Trabajo de Publicidad 11">
-        <img src="galeriasolucionarte-12.webp" class="gallery-item" alt="Trabajo de Publicidad 12">
-        <img src="galeriasolucionarte-13.webp" class="gallery-item" alt="Trabajo de Publicidad 13">
-        <img src="galeriasolucionarte-14.webp" class="gallery-item" alt="Trabajo de Publicidad 14">
-        <img src="galeriasolucionarte-15.webp" class="gallery-item" alt="Trabajo de Publicidad 15">
-        <img src="galeriasolucionarte-16.webp" class="gallery-item" alt="Trabajo de Publicidad 16">
-        <img src="galeriasolucionarte-17.webp" class="gallery-item" alt="Trabajo de Publicidad 17">
-        <img src="galeriasolucionarte-18.webp" class="gallery-item" alt="Trabajo de Publicidad 18">
-        <img src="galeriasolucionarte-19.webp" class="gallery-item" alt="Trabajo de Publicidad 19">
-        <img src="galeriasolucionarte-20.webp" class="gallery-item" alt="Trabajo de Publicidad 20">
-        <img src="galeriasolucionarte-21.webp" class="gallery-item" alt="Trabajo de Publicidad 21">
-        <img src="galeriasolucionarte-22.webp" class="gallery-item" alt="Trabajo de Publicidad 22">
-        <img src="galeriasolucionarte-23.webp" class="gallery-item" alt="Trabajo de Publicidad 23">
-        <img src="galeriasolucionarte-24.webp" class="gallery-item" alt="Trabajo de Publicidad 24">
-    </div>
+    <section id="trabajos">
+        <h2 class="section-title">NUESTROS TRABAJOS</h2>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="galeriasolucionarte.webp" alt="Impresión Publicitaria 1"></div>
+                <div class="swiper-slide"><img src="galeriasolucionarte-2.webp" alt="Impresión Publicitaria 2"></div>
+                <div class="swiper-slide"><img src="galeriasolucionarte-3.webp" alt="Letrero Publicitario"></div>
+                <div class="swiper-slide"><img src="galeriasolucionarte-4.webp" alt="Trabajo DTF"></div>
+                <div class="swiper-slide"><img src="galeriasolucionarte-5.webp" alt="Publicidad en Vinil"></div>
+                </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
 
     <section id="ubicacion">
         <h2 class="section-title">UBICACIÓN</h2>
         <div class="map-container">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.153495471415!2d-99.1384076!3d19.4057863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fec7935f8e6b%3A0xc3f6089d71457102!2sJuan%20Hern%C3%A1ndez%20y%20D%C3%A1valos%2072%2C%20Algar%C3%ADn%2C%20Cuauht%C3%A9moc%2C%2006880%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1700000000000" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.946351187!2d-99.1363627!3d19.4057134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fed3439b1a7d%3A0xc6b6780c10a17457!2sJuan%20Hern%C3%A1ndez%20y%20D%C3%A1valos%2072%2C%20Algar%C3%ADn%2C%20Cuauht%C3%A9moc%2C%2006880%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1710520000000" 
                 allowfullscreen="" loading="lazy">
             </iframe>
         </div>
@@ -258,6 +217,26 @@
         <p>📍 Juan Hernández y Dávalos 72-E Col. Algarín, CDMX</p>
         <p>© 2026 Solucionarte Publicidad</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Función para el Menú Hamburguesa
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            if (window.innerWidth <= 768) {
+                nav.classList.toggle('active');
+            }
+        }
+
+        // Configuración del Slider (Swiper)
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            spaceBetween: 20,
+            autoplay: { delay: 3000 },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+        });
+    </script>
 
 </body>
 </html>
