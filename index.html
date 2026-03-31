@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Solucionarte Publicidad: Expertos en impresión en gran formato, alta resolución, letras 3D y artículos promocionales en CDMX y Texcoco.">
-    <meta name="author" content="ARTEM | Estrategia Digital">
-    
     <title>Solucionarte Publicidad | CDMX & Texcoco</title>
     
     <link rel="icon" type="image/png" href="Favicon 150px-01.png">
@@ -37,11 +35,6 @@
         .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 2100; }
         .menu-toggle span { width: 30px; height: 3px; background: var(--neon-green); transition: 0.3s; }
 
-        /* --- SECCIONES --- */
-        section { scroll-margin-top: 80px; }
-        .video-section { width: 100%; border-bottom: 2px solid var(--neon-magenta); }
-        video { width: 100%; height: auto; display: block; }
-
         /* --- SERVICIOS --- */
         .services-section { padding: 60px 5%; text-align: center; }
         .services-title { font-family: 'Orbitron', sans-serif; font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; }
@@ -65,7 +58,7 @@
 
         /* --- UBICACIÓN --- */
         .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; padding: 0 5%; margin-bottom: 60px; }
-        .map-container { width: 100%; height: 350px; border: 2px solid var(--neon-magenta); background: #111; }
+        .map-container { width: 100%; height: 350px; border: 2px solid var(--neon-magenta); background: #111; overflow: hidden; }
         .map-container iframe { width: 100%; height: 100%; border: 0; filter: invert(90%) hue-rotate(180deg); }
         .location-info { text-align: center; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 10px; }
         .location-info h4 { color: var(--neon-green); font-family: 'Orbitron'; }
@@ -73,7 +66,6 @@
         .wa-link { position: fixed; bottom: 25px; right: 25px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; }
         footer { text-align: center; padding: 50px; background: #000; border-top: 1px solid #222; }
 
-        /* RESPONSIVE MENU */
         @media (max-width: 950px) {
             .menu-toggle { display: flex; }
             .nav-links { 
@@ -90,9 +82,7 @@
 
     <nav>
         <img src="Logotipo.png" class="nav-logo" alt="Solucionarte">
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span><span></span><span></span>
-        </div>
+        <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
         <div class="nav-links" id="nav-menu">
             <a href="#inicio">Inicio</a>
             <a href="#servicios">Servicios</a>
@@ -114,7 +104,7 @@
         
         <div class="services-grid">
             <div class="service-column">
-                <h3>Impresión</h3>
+                <h3>Impresión en alta resolución y gran formato</h3>
                 <ul><li>Lona</li><li>Canvas</li><li>Microperforado</li><li>Estático</li><li>Mesh</li></ul>
                 <span class="sub-category">RÍGIDOS</span>
                 <ul><li>Coroplast</li><li>Trovicel</li><li>Estireno</li></ul>
@@ -173,11 +163,15 @@
         <div class="location-grid">
             <div>
                 <div class="location-info"><h4>Algarín (CDMX)</h4><p>Juan Hernández y Dávalos 72-E</p></div>
-                <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.153401569305!2d-99.1415!3d19.4057"></iframe></div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.012543452441!2d-99.1388033!3d19.4118318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fed39d59247d%3A0x6b8061d491176b6!2sJuan%20Hern%C3%A1ndez%20y%20D%C3%A1valos%2072e%2C%20Algar%C3%ADn%2C%20Cuauht%C3%A9moc%2C%2006880%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1711915000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
             <div>
                 <div class="location-info"><h4>Texcoco (Edomex)</h4><p>Fray Pedro de Gante 69</p></div>
-                <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.32!2d-98.88"></iframe></div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.5036154562544!2d-98.8856863!3d19.5101683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f2a36d24669f%3A0x5106653d9e83695d!2sFray%20Pedro%20de%20Gante%2069%2C%20Texcoco%20de%20Mora%20Centro%2C%2056100%20Texcoco%20de%20Mora%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1711915100000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
         </div>
     </section>
@@ -189,15 +183,8 @@
     <script>
         const mobileMenu = document.getElementById('mobile-menu');
         const navMenu = document.getElementById('nav-menu');
-
-        mobileMenu.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Cerrar menú al hacer click en un link
-        document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-        }));
+        mobileMenu.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+        document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => { navMenu.classList.remove('active'); }));
     </script>
 </body>
 </html>
