@@ -2,79 +2,63 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Solucionarte Publicidad: Expertos en impresión en gran formato, alta resolución, letras 3D y artículos promocionales en CDMX y Texcoco.">
-    <title>Solucionarte Publicidad | CDMX & Texcoco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Solucionarte Publicidad | Gran Formato</title>
     
     <link rel="icon" type="image/png" href="Favicon 150px-01.png">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root { --neon-magenta: #ff00ff; --neon-green: #39ff14; --dark-bg: #0a0a0c; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        body { padding-top: 80px; font-family: 'Rajdhani', sans-serif; background-color: var(--dark-bg); color: white; overflow-x: hidden; scroll-behavior: smooth; }
+        /* Bloqueo estricto de desbordamiento horizontal */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { width: 100%; overflow-x: hidden; background-color: var(--dark-bg); color: white; font-family: 'Rajdhani', sans-serif; scroll-behavior: smooth; }
+        body { padding-top: 80px; }
 
         /* --- NAVBAR --- */
-        nav { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 80px; 
-            background: rgba(10, 10, 12, 0.95); display: flex; 
-            justify-content: space-between; align-items: center; padding: 0 5%; 
-            border-bottom: 2px solid var(--neon-magenta); z-index: 2000; 
-        }
+        nav { position: fixed; top: 0; left: 0; width: 100%; height: 80px; background: rgba(10, 10, 12, 0.95); display: flex; justify-content: space-between; align-items: center; padding: 0 5%; border-bottom: 2px solid var(--neon-magenta); z-index: 2000; }
         .nav-logo { height: 60px; width: auto; }
-        
         .nav-links { display: flex; gap: 20px; }
-        .nav-links a { 
-            color: white; text-decoration: none; font-family: 'Orbitron', sans-serif; 
-            font-size: 0.85rem; font-weight: bold; transition: 0.3s; text-transform: uppercase; 
-        }
-        .nav-links a:hover { color: var(--neon-green); }
-
-        /* HAMBURGUESA */
+        .nav-links a { color: white; text-decoration: none; font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: bold; transition: 0.3s; text-transform: uppercase; }
+        
         .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 2100; }
         .menu-toggle span { width: 30px; height: 3px; background: var(--neon-green); transition: 0.3s; }
 
         /* --- SERVICIOS --- */
         .services-section { padding: 60px 5%; text-align: center; }
-        .services-title { font-family: 'Orbitron', sans-serif; font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; }
-        .services-subtitle { font-size: 1.4rem; color: var(--neon-green); margin-bottom: 50px; font-weight: bold; }
+        .services-title { font-family: 'Orbitron', sans-serif; font-size: 2.8rem; margin-bottom: 10px; text-transform: uppercase; line-height: 1.1; }
+        .services-subtitle { font-size: 1.5rem; color: var(--neon-green); margin-bottom: 50px; font-weight: 800; text-transform: uppercase; }
 
-        .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px; text-align: left; max-width: 1400px; margin: 0 auto;
-        }
-        .service-column h3 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; border-bottom: 2px solid var(--neon-magenta); padding-bottom: 8px; margin-bottom: 15px; }
-        .sub-category { color: var(--neon-green); font-family: 'Orbitron', sans-serif; font-size: 0.85rem; margin-top: 15px; margin-bottom: 5px; display: block; font-weight: bold; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; text-align: left; max-width: 1400px; margin: 0 auto; }
+        .service-column h3 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; border-bottom: 2px solid var(--neon-magenta); padding-bottom: 8px; margin-bottom: 15px; text-transform: uppercase; }
+        .sub-category { color: var(--neon-green); font-family: 'Orbitron', sans-serif; font-size: 0.9rem; margin-top: 18px; margin-bottom: 6px; display: block; font-weight: bold; }
         .service-column ul { list-style: none; }
-        .service-column ul li { font-size: 1.1rem; font-weight: 600; line-height: 1.5; margin-bottom: 4px; }
+        .service-column ul li { font-size: 1.15rem; font-weight: 600; line-height: 1.4; margin-bottom: 5px; }
 
         /* --- SLIDER --- */
         .section-title { text-align: center; font-family: 'Orbitron', sans-serif; color: var(--neon-green); margin: 60px 0 30px; font-size: 2.2rem; text-transform: uppercase; }
-        .works-slider-container { width: 100%; overflow: hidden; padding: 20px 0; background: rgba(255,255,255,0.05); }
-        .works-slider-track { display: flex; width: calc(300px * 25 * 2); animation: scroll-works 70s linear infinite; }
-        .gallery-item { width: 300px; height: 300px; object-fit: cover; border-radius: 10px; border: 2px solid var(--neon-magenta); margin: 0 10px; }
-        @keyframes scroll-works { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-300px * 25)); } }
+        .works-slider-container { width: 100%; overflow: hidden; padding: 20px 0; background: rgba(255,255,255,0.03); border-top: 1px solid #222; }
+        .works-slider-track { display: flex; width: max-content; animation: scroll-works 70s linear infinite; }
+        .gallery-item { width: 280px; height: 280px; object-fit: cover; border-radius: 10px; border: 2px solid var(--neon-magenta); margin: 0 10px; flex-shrink: 0; }
+        @keyframes scroll-works { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* --- UBICACIÓN --- */
         .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; padding: 0 5%; margin-bottom: 60px; }
         .map-container { width: 100%; height: 350px; border: 2px solid var(--neon-magenta); background: #111; overflow: hidden; }
         .map-container iframe { width: 100%; height: 100%; border: 0; filter: invert(90%) hue-rotate(180deg); }
-        .location-info { text-align: center; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 10px; }
-        .location-info h4 { color: var(--neon-green); font-family: 'Orbitron'; }
+        .location-info { text-align: center; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 10px; border: 1px solid #333; }
 
-        .wa-link { position: fixed; bottom: 25px; right: 25px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; }
+        .wa-link { position: fixed; bottom: 25px; right: 25px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1500; }
         footer { text-align: center; padding: 50px; background: #000; border-top: 1px solid #222; }
 
         @media (max-width: 950px) {
-            .menu-toggle { display: flex; }
-            .nav-links { 
-                position: fixed; top: 80px; right: -100%; width: 80%; height: calc(100vh - 80px); 
-                background: rgba(10, 10, 12, 0.98); flex-direction: column; align-items: center; 
-                padding-top: 50px; transition: 0.4s; border-left: 2px solid var(--neon-magenta); 
-            }
+            .menu-toggle { display: flex; margin-right: 15px; }
+            .nav-links { position: fixed; top: 80px; right: -100%; width: 85%; height: calc(100vh - 80px); background: rgba(10, 10, 12, 0.98); flex-direction: column; align-items: center; padding-top: 50px; transition: 0.4s; border-left: 2px solid var(--neon-magenta); }
             .nav-links.active { right: 0; }
             .location-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; padding: 0 5%; }
+            .services-title { font-size: 2.1rem; }
         }
     </style>
 </head>
@@ -99,12 +83,12 @@
     </section>
 
     <section id="servicios" class="services-section">
-        <h2 class="services-title">Servicios</h2>
-        <p class="services-subtitle">Impresión en gran formato y alta resolución</p>
+        <h2 class="services-title">Impresión en gran formato</h2>
+        <p class="services-subtitle">y alta resolución</p>
         
         <div class="services-grid">
             <div class="service-column">
-                <h3>Impresión en alta resolución y gran formato</h3>
+                <h3>Impresión</h3>
                 <ul><li>Lona</li><li>Canvas</li><li>Microperforado</li><li>Estático</li><li>Mesh</li></ul>
                 <span class="sub-category">RÍGIDOS</span>
                 <ul><li>Coroplast</li><li>Trovicel</li><li>Estireno</li></ul>
@@ -123,7 +107,7 @@
 
             <div class="service-column">
                 <h3>Servicios</h3>
-                <ul><li>Corte y grabado láser</li><li>Corte de vinil (60 y 1.20)</li></ul>
+                <ul><li>Corte y grabado láser</li><li>Corte de vinil (60 y 1.20 de ancho)</li></ul>
             </div>
 
             <div class="service-column">
@@ -135,7 +119,7 @@
                 <h3>Digital</h3>
                 <span class="sub-category">TABLOIDE REBASADO</span>
                 <ul><li>Couche 300g</li><li>Couche 150g</li></ul>
-                <span class="sub-category">ESPECIALIDAD</span>
+                <br>
                 <ul><li>Papel adhesivo con corte a registro</li></ul>
             </div>
         </div>
@@ -144,17 +128,7 @@
     <section id="trabajos">
         <h2 class="section-title">NUESTROS TRABAJOS</h2>
         <div class="works-slider-container">
-            <div class="works-slider-track">
-                <script>
-                    const track = document.querySelector('.works-slider-track');
-                    for(let i = 1; i <= 25; i++) {
-                        const img = document.createElement('img');
-                        img.src = i === 1 ? 'galeriasolucionarte.webp' : `galeriasolucionarte-${i}.webp`;
-                        img.className = 'gallery-item';
-                        track.appendChild(img);
-                    }
-                </script>
-            </div>
+            <div class="works-slider-track" id="track"></div>
         </div>
     </section>
 
@@ -164,23 +138,31 @@
             <div>
                 <div class="location-info"><h4>Algarín (CDMX)</h4><p>Juan Hernández y Dávalos 72-E</p></div>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.012543452441!2d-99.1388033!3d19.4118318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fed39d59247d%3A0x6b8061d491176b6!2sJuan%20Hern%C3%A1ndez%20y%20D%C3%A1valos%2072e%2C%20Algar%C3%ADn%2C%20Cuauht%C3%A9moc%2C%2006880%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1711915000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.1534062148!2d-99.1415277!3d19.4058222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fed34336c567%3A0x679267a151b73e51!2sJuan%20Hern%C3%A1ndez%20y%20D%C3%A1valos%2072e%2C%20Algar%C3%ADn%2C%20Cuauht%C3%A9moc%2C%2006880%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1711915000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
             <div>
                 <div class="location-info"><h4>Texcoco (Edomex)</h4><p>Fray Pedro de Gante 69</p></div>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.5036154562544!2d-98.8856863!3d19.5101683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f2a36d24669f%3A0x5106653d9e83695d!2sFray%20Pedro%20de%20Gante%2069%2C%20Texcoco%20de%20Mora%20Centro%2C%2056100%20Texcoco%20de%20Mora%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1711915100000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.547192931535!2d-98.8845!3d19.5105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e895843b0001%3A0xc665181b8979c13e!2sFray%20Pedro%20de%20Gante%2069%2C%20Centro%2C%2056100%20Texcoco%20de%20Mora%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1711915000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contacto">
-        <p>© 2026 Solucionarte Publicidad | Estrategia por ARTEM</p>
-    </footer>
+    <footer><p>© 2026 Solucionarte Publicidad | Estrategia por ARTEM</p></footer>
 
     <script>
+        const track = document.getElementById('track');
+        const images = ['galeriasolucionarte.webp'];
+        for(let i = 2; i <= 25; i++) { images.push(`galeriasolucionarte-${i}.webp`); }
+        [...images, ...images].forEach(src => {
+            const img = document.createElement('img');
+            img.src = src; img.className = 'gallery-item';
+            img.onerror = () => img.style.display = 'none';
+            track.appendChild(img);
+        });
+
         const mobileMenu = document.getElementById('mobile-menu');
         const navMenu = document.getElementById('nav-menu');
         mobileMenu.addEventListener('click', () => { navMenu.classList.toggle('active'); });
