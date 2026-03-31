@@ -18,51 +18,46 @@
         * { box-sizing: border-box; }
         body { margin: 0; padding-top: 80px; font-family: 'Rajdhani', sans-serif; background-color: var(--dark-bg); color: white; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* --- NAVBAR --- */
         nav { position: fixed; top: 0; left: 0; width: 100%; height: 80px; background: rgba(10, 10, 12, 0.95); display: flex; justify-content: space-between; align-items: center; padding: 0 5%; border-bottom: 2px solid var(--neon-magenta); z-index: 1000; box-shadow: 0 0 15px rgba(255, 0, 255, 0.3); }
         .nav-logo { height: 60px; width: auto; }
         .nav-links { display: flex; gap: 20px; }
         .nav-links a { color: white; text-decoration: none; font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: bold; transition: 0.3s; text-transform: uppercase; }
         .nav-links a:hover { color: var(--neon-green); }
 
-        /* --- SECCIONES --- */
         section { scroll-margin-top: 80px; }
         .video-section { width: 100%; line-height: 0; border-bottom: 2px solid var(--neon-magenta); }
         video { width: 100%; height: auto; display: block; }
 
-        /* --- SERVICIOS (GRID DE 5 COLUMNAS) --- */
         .services-section { padding: 80px 5%; text-align: center; }
         .services-title { font-family: 'Orbitron', sans-serif; font-size: 3rem; color: white; margin-bottom: 10px; text-transform: uppercase; }
-        .services-subtitle { font-size: 1.5rem; color: var(--neon-green); margin-bottom: 50px; font-weight: 600; }
+        .services-subtitle { font-size: 1.4rem; color: var(--neon-green); margin-bottom: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px; text-align: left; max-width: 1400px; margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px; text-align: left; max-width: 1400px; margin: 0 auto;
         }
         .service-column h3 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; color: white; border-bottom: 2px solid var(--neon-magenta); padding-bottom: 8px; margin-bottom: 15px; text-transform: uppercase; }
-        .sub-category { color: var(--neon-green); font-family: 'Orbitron', sans-serif; font-size: 0.9rem; margin-top: 15px; margin-bottom: 5px; display: block; font-weight: bold; }
+        .sub-category { color: var(--neon-green); font-family: 'Orbitron', sans-serif; font-size: 0.85rem; margin-top: 15px; margin-bottom: 5px; display: block; font-weight: bold; letter-spacing: 1px; }
         .service-column ul { list-style: none; padding: 0; margin: 0; }
         .service-column ul li { font-size: 1.1rem; font-weight: 600; line-height: 1.4; color: white; margin-bottom: 4px; }
 
-        /* --- SLIDER --- */
         .section-title { text-align: center; font-family: 'Orbitron', sans-serif; color: var(--neon-green); margin: 60px 0 30px; font-size: 2.2rem; text-transform: uppercase; }
         .works-slider-container { width: 100%; overflow: hidden; padding: 20px 0; background: rgba(0,0,0,0.3); border-top: 1px solid #222; border-bottom: 1px solid #222; }
         .works-slider-track { display: flex; width: calc(300px * 25 * 2); animation: scroll-works 70s linear infinite; }
         .gallery-item { width: 300px; height: 300px; object-fit: cover; border-radius: 10px; border: 2px solid var(--neon-magenta); margin: 0 10px; flex-shrink: 0; }
         @keyframes scroll-works { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-300px * 25)); } }
 
-        /* --- UBICACIÓN --- */
-        .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 0 5%; margin-bottom: 60px; }
+        .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; padding: 0 5%; margin-bottom: 60px; }
         .map-container { width: 100%; height: 350px; border: 2px solid var(--neon-magenta); }
         .map-container iframe { width: 100%; height: 100%; border: 0; filter: invert(90%) hue-rotate(180deg); }
         .location-info { text-align: center; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid #333; margin-bottom: 10px; }
         .location-info h4 { color: var(--neon-green); font-family: 'Orbitron'; margin: 0; }
 
-        .wa-link { position: fixed; bottom: 25px; right: 25px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; }
-        footer { text-align: center; padding: 40px; background: #000; border-top: 1px solid #222; }
+        .wa-link { position: fixed; bottom: 25px; right: 25px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 0 15px rgba(37, 211, 102, 0.4); }
+        footer { text-align: center; padding: 50px; background: #000; border-top: 1px solid #222; font-weight: 600; }
 
-        @media (max-width: 1000px) { .location-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 1000px) { .location-grid { grid-template-columns: 1fr; } .services-title { font-size: 2.2rem; } }
     </style>
 </head>
 <body>
@@ -91,9 +86,7 @@
         <div class="services-grid">
             <div class="service-column">
                 <h3>Impresión</h3>
-                <ul>
-                    <li>Lona</li><li>Canvas</li><li>Microperforado</li><li>Estático</li><li>Mesh</li>
-                </ul>
+                <ul><li>Lona</li><li>Canvas</li><li>Microperforado</li><li>Estático</li><li>Mesh</li></ul>
                 <span class="sub-category">RÍGIDOS</span>
                 <ul><li>Coroplast</li><li>Trovicel</li><li>Estireno</li></ul>
                 <span class="sub-category">DTF</span>
@@ -105,7 +98,8 @@
             <div class="service-column">
                 <h3>Productos</h3>
                 <ul>
-                    <li>Letras 3D</li><li>Anuncio LED</li><li>Playeras</li><li>Gorras</li><li>Tazas</li><li>Vasos</li><li>Termos</li><li>Pelotas anti estrés</li><li>Cajas de luz</li><li>Banners</li><li>Arañas</li><li>Rollups</li>
+                    <li>Anuncio LED</li><li>Letras 3D</li><li>Cajas de luz</li><li>Banners</li><li>Rollups</li><li>Arañas</li>
+                    <li>Vasos</li><li>Termos</li><li>Pelotas anti estrés</li><li>Playeras</li><li>Gorras</li><li>Tazas</li>
                 </ul>
             </div>
 
@@ -113,7 +107,7 @@
                 <h3>Servicios</h3>
                 <ul>
                     <li>Corte y grabado láser</li>
-                    <li>Corte de vinil 60 y 1.20 de ancho</li>
+                    <li>Corte de vinil (60 y 1.20 de ancho)</li>
                 </ul>
             </div>
 
@@ -126,12 +120,10 @@
 
             <div class="service-column">
                 <h3>Digital</h3>
-                <ul>
-                    <li style="color:var(--neon-magenta); font-size: 0.9rem; margin-bottom: 5px;">TABLOIDE REBASADO:</li>
-                    <li>Couche 300 y 150g</li>
-                    <li style="color:var(--neon-magenta); font-size: 0.9rem; margin-top: 15px; margin-bottom: 5px;">ESPECIALIDAD:</li>
-                    <li>Papel adhesivo con corte a registro</li>
-                </ul>
+                <span class="sub-category">TABLOIDE REBASADO</span>
+                <ul><li>Couche 300g</li><li>Couche 150g</li></ul>
+                <span class="sub-category">ESPECIALIDAD</span>
+                <ul><li>Papel adhesivo con corte a registro</li></ul>
             </div>
         </div>
     </section>
@@ -163,11 +155,11 @@
         <div class="location-grid">
             <div>
                 <div class="location-info"><h4>Algarín (CDMX)</h4><p>Juan Hernández y Dávalos 72-E</p></div>
-                <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.915104443916!2d-99.1388!3d19.4069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI0JzI0LjgiTiA5OcKwMDgnMTkuNyJX!5e0!3m2!1ses!2smx!4v1650000000000"></iframe></div>
+                <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.155461234567!2d-99.1415!3d19.4045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI0JzE2LjIiTiA5OcKwMDgnMjkuNCJX!5e0!3m2!1ses!2smx!4v1234567890"></iframe></div>
             </div>
             <div>
                 <div class="location-info"><h4>Texcoco (Edomex)</h4><p>Fray Pedro de Gante 69</p></div>
-                <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.53!2d-98.88!3d19.51!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDMwJzM2LjAiTiA5OMKwNTInNDguMCJX!5e0!3m2!1ses!2smx!4v1650000000000"></iframe></div>
+                <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.5!2d-98.8833!3d19.5167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDMxJzAwLjAiTiA5OMKwNTMnMDAuMCJX!5e0!3m2!1ses!2smx!4v1234567890"></iframe></div>
             </div>
         </div>
     </section>
