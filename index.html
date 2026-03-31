@@ -11,7 +11,6 @@
     <style>
         :root { --neon-magenta: #ff00ff; --neon-green: #39ff14; --dark-bg: #0a0a0c; }
         
-        /* Bloqueo estricto de desbordamiento horizontal */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html, body { width: 100%; overflow-x: hidden; background-color: var(--dark-bg); color: white; font-family: 'Rajdhani', sans-serif; scroll-behavior: smooth; }
         body { padding-top: 80px; }
@@ -21,9 +20,23 @@
         .nav-logo { height: 60px; width: auto; }
         .nav-links { display: flex; gap: 20px; }
         .nav-links a { color: white; text-decoration: none; font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: bold; transition: 0.3s; text-transform: uppercase; }
-        
         .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 2100; }
         .menu-toggle span { width: 30px; height: 3px; background: var(--neon-green); transition: 0.3s; }
+
+        /* --- VIDEO RESPONSIVO (CORRECCIÓN) --- */
+        .video-section { 
+            width: 100%; 
+            line-height: 0; 
+            overflow: hidden; 
+            border-bottom: 2px solid var(--neon-magenta);
+            background: #000;
+        }
+        video { 
+            width: 100%; 
+            height: auto; /* Se ajusta proporcionalmente */
+            max-width: 100%;
+            display: block;
+        }
 
         /* --- SERVICIOS --- */
         .services-section { padding: 60px 5%; text-align: center; }
@@ -79,7 +92,9 @@
     <a href="https://wa.me/525638863684" class="wa-link" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35"></a>
 
     <section id="inicio" class="video-section">
-        <video autoplay muted loop playsinline><source src="web.mp4" type="video/mp4"></video>
+        <video autoplay muted loop playsinline>
+            <source src="web.mp4" type="video/mp4">
+        </video>
     </section>
 
     <section id="servicios" class="services-section">
@@ -138,13 +153,13 @@
             <div>
                 <div class="location-info"><h4>Algarín (CDMX)</h4><p>Juan Hernández y Dávalos 72-E</p></div>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.1534062148!2d-99.1415277!3d19.4058222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fed34336c567%3A0x679267a151b73e51!2sJuan%20Hern%C3%A1ndez%20y%20D%C3%A1valos%2072e%2C%20Algar%C3%ADn%2C%20Cuauht%C3%A9moc%2C%2006880%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1711915000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.973412351234!2d-99.139632!3d19.408164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1feec908c6913%3A0x67302f3a60a0f0e0!2sJuan%20Hern%C3%A1ndez%20y%20D%C3%A1valos%2072%2C%20Algar%C3%ADn%2C%20Cuauht%C3%A9moc%2C%2006880%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1711910000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
             <div>
                 <div class="location-info"><h4>Texcoco (Edomex)</h4><p>Fray Pedro de Gante 69</p></div>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.547192931535!2d-98.8845!3d19.5105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e895843b0001%3A0xc665181b8979c13e!2sFray%20Pedro%20de%20Gante%2069%2C%20Centro%2C%2056100%20Texcoco%20de%20Mora%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1711915000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.350311231234!2d-98.883456!3d19.511234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e893456789ab%3A0x1234567890abcdef!2sFray%20Pedro%20de%20Gante%2069%2C%20Centro%2C%2056100%20Texcoco%20de%20Mora%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1711910000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
