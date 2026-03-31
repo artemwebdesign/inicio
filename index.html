@@ -38,7 +38,6 @@
 
         .nav-logo { height: 60px; width: auto; }
 
-        /* Menú Desktop */
         .nav-links { display: flex; gap: 20px; }
         .nav-links a {
             color: white; text-decoration: none; font-family: 'Orbitron', sans-serif;
@@ -46,20 +45,13 @@
         }
         .nav-links a:hover { color: var(--neon-green); }
 
-        /* Hamburguesa */
         .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            z-index: 1100;
+            display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100;
         }
-        .menu-toggle span {
-            width: 30px; height: 3px; background: var(--neon-green);
-            transition: 0.3s;
-        }
+        .menu-toggle span { width: 30px; height: 3px; background: var(--neon-green); transition: 0.3s; }
 
-        /* --- VIDEO HERO --- */
+        /* --- VIDEO HERO (ANCLA INICIO) --- */
+        #inicio { scroll-margin-top: 80px; }
         .video-section {
             width: 100%;
             line-height: 0;
@@ -67,9 +59,10 @@
         }
         video { width: 100%; height: auto; display: block; }
 
-        /* --- SECCIÓN SERVICIOS --- */
+        /* --- SECCIÓN SERVICIOS (ANCLA SERVICIOS) --- */
+        #servicios { scroll-margin-top: 80px; }
         .services-section { padding: 60px 5%; text-align: center; }
-        .services-title { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: white; margin-bottom: 10px; text-transform: uppercase; }
+        .services-title { font-family: 'Orbitron', sans-serif; font-size: 3rem; color: white; margin-bottom: 10px; text-transform: uppercase; }
         .services-subtitle { font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; color: var(--neon-green); margin-bottom: 50px; text-transform: uppercase; font-weight: bold; }
 
         .services-grid {
@@ -77,49 +70,68 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px; text-align: left; max-width: 1300px; margin: 0 auto;
         }
-        .service-column h3 { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: white; border-bottom: 2px solid var(--neon-magenta); padding-bottom: 10px; margin-bottom: 15px; text-transform: uppercase; }
+        .service-column h3 { font-family: 'Orbitron', sans-serif; font-size: 2.2rem; color: white; border-bottom: 3px solid var(--neon-magenta); padding-bottom: 10px; margin-bottom: 15px; text-transform: uppercase; }
         .sub-category { color: var(--neon-magenta); font-family: 'Orbitron', sans-serif; font-size: 1.1rem; margin-top: 15px; margin-bottom: 8px; display: block; text-transform: uppercase; }
         .service-column ul { list-style: none; padding: 0; margin: 0; }
-        .service-column ul li { font-size: 1.2rem; font-weight: 600; line-height: 1.5; margin-bottom: 4px; color: #ddd; }
+        .service-column ul li { font-size: 1.4rem; font-weight: 700; line-height: 1.4; margin-bottom: 5px; color: white; }
 
-        /* --- GALERÍA ACTUALIZADA --- */
-        section { scroll-margin-top: 80px; }
+        /* --- SLIDER DE TRABAJOS --- */
+        #trabajos { scroll-margin-top: 80px; }
         .section-title { text-align: center; font-family: 'Orbitron', sans-serif; color: var(--neon-green); margin: 60px 0 30px; font-size: 2rem; text-transform: uppercase; }
         
-        .gallery-container {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 15px; padding: 0 8%; margin-bottom: 60px;
+        .works-slider-container {
+            width: 100%; overflow: hidden; padding: 20px 0; background: rgba(0,0,0,0.3);
+            border-top: 1px solid #222; border-bottom: 1px solid #222; margin-bottom: 60px;
         }
-        .gallery-item {
-            width: 100%; height: 280px; object-fit: cover;
-            border-radius: 10px; border: 2px solid var(--neon-magenta);
-            transition: 0.3s;
-        }
-        .gallery-item:hover { transform: scale(1.02); box-shadow: 0 0 15px var(--neon-magenta); }
 
-        /* --- MAPA Y FORMULARIO --- */
-        .map-container { width: 100%; height: 400px; border-top: 2px solid var(--neon-magenta); border-bottom: 2px solid var(--neon-magenta); }
+        .works-slider-track {
+            display: flex;
+            width: calc(300px * 25 * 2); /* Ajustado para 25 fotos x 2 */
+            animation: scroll-works 70s linear infinite;
+        }
+
+        .works-slider-track:hover { animation-play-state: paused; }
+
+        .gallery-item {
+            width: 300px; height: 300px; object-fit: cover; border-radius: 10px;
+            border: 2px solid var(--neon-magenta); margin: 0 10px; flex-shrink: 0; transition: 0.3s;
+        }
+        .gallery-item:hover { transform: scale(1.05); box-shadow: 0 0 15px var(--neon-magenta); }
+
+        @keyframes scroll-works {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-300px * 25)); }
+        }
+
+        /* --- UBICACIÓN (ANCLA UBICACIÓN) --- */
+        #ubicacion { scroll-margin-top: 80px; }
+        .map-container { width: 100%; height: 450px; border-top: 2px solid var(--neon-magenta); border-bottom: 2px solid var(--neon-magenta); background: #000; }
         .map-container iframe { width: 100%; height: 100%; border: 0; filter: invert(90%) hue-rotate(180deg); }
+
+        /* --- CONTACTO (ANCLA CONTACTO) --- */
+        #contacto { scroll-margin-top: 80px; }
         .contact-section { background: #111; padding: 60px 10%; border-top: 2px solid var(--neon-green); }
         .form-card { max-width: 550px; margin: 0 auto; background: rgba(255, 255, 255, 0.02); padding: 30px; border-radius: 15px; border: 1px solid #333; }
         input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; background: #1a1a1a; border: 1px solid #444; color: white; border-radius: 5px; font-family: 'Rajdhani'; }
         .btn-submit { width: 100%; padding: 15px; background: var(--neon-magenta); color: white; border: none; font-family: 'Orbitron'; cursor: pointer; transition: 0.3s; }
-        .btn-submit:hover { box-shadow: 0 0 15px var(--neon-magenta); }
 
         .wa-link { position: fixed; bottom: 25px; right: 25px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; }
 
         footer { text-align: center; padding: 30px; background: #000; font-size: 0.9rem; }
 
-        /* --- MEDIA QUERIES (MÓVIL) --- */
         @media (max-width: 768px) {
             .menu-toggle { display: flex; }
             .nav-links {
-                position: fixed; top: 80px; right: -100%; width: 70%; height: calc(100vh - 80px);
+                position: fixed; top: 80px; right: -100%; width: 75%; height: calc(100vh - 80px);
                 background: rgba(10, 10, 12, 0.98); flex-direction: column; align-items: center;
                 padding-top: 50px; transition: 0.4s; border-left: 2px solid var(--neon-magenta);
             }
             .nav-links.active { right: 0; }
-            .services-title { font-size: 2rem; }
+            .gallery-item { width: 220px; height: 220px; }
+            @keyframes scroll-works {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(calc(-220px * 25)); }
+            }
         }
     </style>
 </head>
@@ -127,13 +139,7 @@
 
     <nav>
         <img src="Logotipo.png" class="nav-logo" alt="Solucionarte" onerror="this.src='Logotipo500x500px-01.png';">
-        
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
+        <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
         <div class="nav-links" id="nav-menu">
             <a href="#inicio">Inicio</a>
             <a href="#servicios">Servicios</a>
@@ -143,88 +149,74 @@
         </div>
     </nav>
 
-    <a href="https://wa.me/525638863684" class="wa-link" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WhatsApp">
-    </a>
+    <a href="https://wa.me/525638863684" class="wa-link" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35"></a>
 
     <section id="inicio" class="video-section">
-        <video autoplay muted loop playsinline>
-            <source src="web.mp4" type="video/mp4">
-        </video>
+        <video autoplay muted loop playsinline><source src="web.mp4" type="video/mp4"></video>
     </section>
 
     <section id="servicios" class="services-section">
         <h2 class="services-title">Servicios</h2>
         <p class="services-subtitle">Impresión en gran formato y alta resolución</p>
-        
         <div class="services-grid">
             <div class="service-column">
                 <h3>Impresión</h3>
-                <ul>
-                    <li>Lona</li><li>Canvas</li><li>Microperforado</li><li>Estático</li><li>Mesh</li>
-                </ul>
+                <ul><li>Lona</li><li>Canvas</li><li>Microperforado</li><li>Estático</li><li>Mesh</li></ul>
                 <span class="sub-category">Rígidos</span>
-                <ul>
-                    <li>Coroplast</li><li>Trovicel</li><li>Estireno</li>
-                </ul>
+                <ul><li>Coroplast</li><li>Trovicel</li><li>Estireno</li></ul>
                 <span class="sub-category">DTF</span>
-                <ul>
-                    <li>Textil</li><li>UV</li>
-                </ul>
+                <ul><li>Textil</li><li>UV</li></ul>
                 <span class="sub-category">Stickers</span>
-                <ul>
-                    <li>Vinil</li><li>Transparente</li>
-                </ul>
+                <ul><li>Vinil</li><li>Transparente</li></ul>
             </div>
-
             <div class="service-column">
                 <h3>Productos</h3>
-                <ul>
-                    <li>Letras 3D</li><li>Anuncios LED</li><li>Playeras</li><li>Gorras</li><li>Tazas</li><li>Vasos</li><li>Termos</li><li>Pelotas anti estrés</li><li>Cajas de luz</li><li>Banners</li><li>Arañas</li><li>Rollups</li>
-                </ul>
+                <ul><li>Letras 3D</li><li>Anuncios LED</li><li>Playeras</li><li>Gorras</li><li>Tazas</li><li>Vasos</li><li>Termos</li><li>Pelotas anti estrés</li><li>Cajas de luz</li><li>Banners</li><li>Arañas</li><li>Rollups</li></ul>
             </div>
-
             <div class="service-column">
                 <h3>Servicios</h3>
-                <ul>
-                    <li>Corte y grabado láser</li><li>Corte de vinil 60 y 1.20 de ancho</li>
-                </ul>
+                <ul><li>Corte y grabado láser</li><li>Corte de vinil 60 y 1.20 de ancho</li></ul>
                 <br>
                 <h3>Offset</h3>
-                <ul>
-                    <li>Volantes</li><li>Tarjetas</li><li>Recetarios</li><li>Trípticos</li>
-                </ul>
+                <ul><li>Volantes</li><li>Tarjetas</li><li>Recetarios</li><li>Trípticos</li></ul>
             </div>
-
             <div class="service-column">
                 <h3>Impresión Digital</h3>
-                <ul>
-                    <li>Tabloide rebasado couche 300 y 150g</li><li>Papel adhesivo con corte a registro</li>
-                </ul>
+                <ul><li>Tabloide rebasado couche 300 y 150g</li><li>Papel adhesivo con corte a registro</li></ul>
             </div>
         </div>
     </section>
 
     <section id="trabajos">
         <h2 class="section-title">NUESTROS TRABAJOS</h2>
-        <div class="gallery-container">
-            <img src="imagendegaleria-01.png" class="gallery-item">
-            <img src="imagendegaleria-02.png" class="gallery-item">
-            <img src="imagendegaleria-03.png" class="gallery-item">
-            <img src="imagendegaleria-04.png" class="gallery-item">
-            <img src="imagendegaleria-05.png" class="gallery-item">
-            <img src="imagendegaleria-06.png" class="gallery-item">
-            <img src="imagendegaleria-07.png" class="gallery-item">
+        <div class="works-slider-container">
+            <div class="works-slider-track">
+                <script>
+                    const track = document.querySelector('.works-slider-track');
+                    // Rango corregido: galeriasolucionarte.webp + galeriasolucionarte-2 a -24
+                    const images = ['galeriasolucionarte.webp'];
+                    for(let i = 2; i <= 24; i++) { images.push(`galeriasolucionarte-${i}.webp`); }
+
+                    // Función para inyectar imágenes
+                    function injectImages() {
+                        images.forEach(src => {
+                            const img = document.createElement('img');
+                            img.src = src; img.className = 'gallery-item';
+                            img.onerror = function() { this.style.display = 'none'; };
+                            track.appendChild(img);
+                        });
+                    }
+                    injectImages(); // Primera tanda
+                    injectImages(); // Segunda tanda para bucle infinito
+                </script>
+            </div>
         </div>
     </section>
 
     <section id="ubicacion">
         <h2 class="section-title">UBICACIÓN</h2>
         <div class="map-container">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.946399081546!2d-99.1415274!3d19.414736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1feda03117469%3A0x6796695f2425626!2sJuan%20Hern%C3%A1ndez%20y%20D%C3%A1valos%2072%2C%20Algar%C3%ADn%2C%20Cuauht%C3%A9moc%2C%2006880%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1710000000000" 
-                allowfullscreen="" loading="lazy">
-            </iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.915747477546!2d-99.1384918239634!3d19.416008141103273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fedbc952f44f%3A0xe7f9202572c68641!2sJuan%20Hern%C3%A1ndez%20y%20D%C3%A1valos%2072%2C%20Algar%C3%ADn%2C%20Cuauht%C3%A9moc%2C%2006880%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1711915000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
@@ -234,7 +226,7 @@
             <form action="https://formspree.io/f/solucionarte72@gmail.com" method="POST">
                 <input type="text" name="name" placeholder="Tu Nombre" required>
                 <input type="email" name="email" placeholder="Tu Correo" required>
-                <textarea name="message" rows="4" placeholder="¿Qué necesitas?" required></textarea>
+                <textarea name="message" rows="4" placeholder="¿Qué servicios necesitas?" required></textarea>
                 <button type="submit" class="btn-submit">Enviar Datos</button>
             </form>
         </div>
@@ -248,18 +240,10 @@
     <script>
         const menuToggle = document.getElementById('mobile-menu');
         const navMenu = document.getElementById('nav-menu');
-
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Cerrar menú al hacer clic en un enlace (móvil)
+        menuToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
+            link.addEventListener('click', () => { navMenu.classList.remove('active'); });
         });
     </script>
-
 </body>
 </html>
