@@ -1,10 +1,187 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8"></head>
-<body style="background: red; color: white; text-align: center; padding: 100px;">
-    <h1>ESTA ES LA VERSIÓN NUEVA 1:30 AM</h1>
-    <p>Si ves este fondo rojo, el despliegue funciona.</p>
-    <p>Equipo 1: Dobladora de varilla 3/8 a 1 1/2</p>
-    <p>Video 1: roscadoradevarilla.mp4</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Solucionarte Publicidad | Gran Formato</title>
+    
+    <link rel="icon" type="image/png" href="Favicon 150px-01.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --neon-magenta: #ff00ff; --neon-green: #39ff14; --dark-bg: #0a0a0c; }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { width: 100%; overflow-x: hidden; background-color: var(--dark-bg); color: white; font-family: 'Rajdhani', sans-serif; scroll-behavior: smooth; }
+        body { padding-top: 80px; }
+
+        /* --- NAVBAR --- */
+        nav { position: fixed; top: 0; left: 0; width: 100%; height: 80px; background: rgba(10, 10, 12, 0.95); display: flex; justify-content: space-between; align-items: center; padding: 0 5%; border-bottom: 2px solid var(--neon-magenta); z-index: 2000; }
+        .nav-logo { height: 60px; width: auto; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: white; text-decoration: none; font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: bold; transition: 0.3s; text-transform: uppercase; }
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 2100; }
+        .menu-toggle span { width: 30px; height: 3px; background: var(--neon-green); transition: 0.3s; }
+
+        /* --- VIDEO RESPONSIVO (CORRECCIÓN) --- */
+        .video-section { 
+            width: 100%; 
+            line-height: 0; 
+            overflow: hidden; 
+            border-bottom: 2px solid var(--neon-magenta);
+            background: #000;
+        }
+        video { 
+            width: 100%; 
+            height: auto; /* Se ajusta proporcionalmente */
+            max-width: 100%;
+            display: block;
+        }
+
+        /* --- SERVICIOS --- */
+        .services-section { padding: 60px 5%; text-align: center; }
+        .services-title { font-family: 'Orbitron', sans-serif; font-size: 2.8rem; margin-bottom: 10px; text-transform: uppercase; line-height: 1.1; }
+        .services-subtitle { font-size: 1.5rem; color: var(--neon-green); margin-bottom: 50px; font-weight: 800; text-transform: uppercase; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; text-align: left; max-width: 1400px; margin: 0 auto; }
+        .service-column h3 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; border-bottom: 2px solid var(--neon-magenta); padding-bottom: 8px; margin-bottom: 15px; text-transform: uppercase; }
+        .sub-category { color: var(--neon-green); font-family: 'Orbitron', sans-serif; font-size: 0.9rem; margin-top: 18px; margin-bottom: 6px; display: block; font-weight: bold; }
+        .service-column ul { list-style: none; }
+        .service-column ul li { font-size: 1.15rem; font-weight: 600; line-height: 1.4; margin-bottom: 5px; }
+
+        /* --- SLIDER --- */
+        .section-title { text-align: center; font-family: 'Orbitron', sans-serif; color: var(--neon-green); margin: 60px 0 30px; font-size: 2.2rem; text-transform: uppercase; }
+        .works-slider-container { width: 100%; overflow: hidden; padding: 20px 0; background: rgba(255,255,255,0.03); border-top: 1px solid #222; }
+        .works-slider-track { display: flex; width: max-content; animation: scroll-works 70s linear infinite; }
+        .gallery-item { width: 280px; height: 280px; object-fit: cover; border-radius: 10px; border: 2px solid var(--neon-magenta); margin: 0 10px; flex-shrink: 0; }
+        @keyframes scroll-works { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* --- UBICACIÓN --- */
+        .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; padding: 0 5%; margin-bottom: 60px; }
+        .map-container { width: 100%; height: 350px; border: 2px solid var(--neon-magenta); background: #111; overflow: hidden; }
+        .map-container iframe { width: 100%; height: 100%; border: 0; filter: invert(90%) hue-rotate(180deg); }
+        .location-info { text-align: center; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 10px; border: 1px solid #333; }
+
+        .wa-link { position: fixed; bottom: 25px; right: 25px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1500; }
+        footer { text-align: center; padding: 50px; background: #000; border-top: 1px solid #222; }
+
+        @media (max-width: 950px) {
+            .menu-toggle { display: flex; margin-right: 15px; }
+            .nav-links { position: fixed; top: 80px; right: -100%; width: 85%; height: calc(100vh - 80px); background: rgba(10, 10, 12, 0.98); flex-direction: column; align-items: center; padding-top: 50px; transition: 0.4s; border-left: 2px solid var(--neon-magenta); }
+            .nav-links.active { right: 0; }
+            .location-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; padding: 0 5%; }
+            .services-title { font-size: 2.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <img src="Logotipo.png" class="nav-logo" alt="Solucionarte">
+        <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
+        <div class="nav-links" id="nav-menu">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#trabajos">Trabajos</a>
+            <a href="#ubicacion">Ubicación</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </nav>
+
+    <a href="https://wa.me/525638863684" class="wa-link" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35"></a>
+
+    <section id="inicio" class="video-section">
+        <video autoplay muted loop playsinline>
+            <source src="web.mp4" type="video/mp4">
+        </video>
+    </section>
+
+    <section id="servicios" class="services-section">
+        <h2 class="services-title">Impresión en gran formato</h2>
+        <p class="services-subtitle">y alta resolución</p>
+        
+        <div class="services-grid">
+            <div class="service-column">
+                <h3>Impresión en alta resolución y gran formato</h3>
+                <ul><li>Lona</li><li>Canvas</li><li>Microperforado</li><li>Estático</li><li>Mesh</li></ul>
+                <span class="sub-category">RÍGIDOS</span>
+                <ul><li>Coroplast</li><li>Trovicel</li><li>Estireno</li></ul>
+                <span class="sub-category">DTF</span>
+                <ul><li>Textil</li><li>UV</li></ul>
+                <span class="sub-category">STICKERS</span>
+                <ul><li>Vinil</li><li>Transparente</li></ul>
+            </div>
+
+            <div class="service-column">
+                <h3>Productos</h3>
+                <ul><li>Anuncio LED</li><li>Letras 3D</li><li>Cajas de luz</li><li>Banners</li><li>Rollups</li><li>Arañas</li></ul>
+                <span class="sub-category">ESTAMPADOS Y SUBLIMADOS</span>
+                <ul><li>Playeras</li><li>Gorras</li><li>Tazas</li><li>Vasos</li><li>Termos</li><li>Pelotas anti estrés</li></ul>
+            </div>
+
+            <div class="service-column">
+                <h3>Servicios</h3>
+                <ul><li>Corte y grabado láser</li><li>Corte de vinil (60 y 1.20 de ancho)</li></ul>
+            </div>
+
+            <div class="service-column">
+                <h3>Offset</h3>
+                <ul><li>Volantes</li><li>Tarjetas</li><li>Recetarios</li><li>Trípticos</li></ul>
+            </div>
+
+            <div class="service-column">
+                <h3>Digital</h3>
+                <span class="sub-category">TABLOIDE REBASADO</span>
+                <ul><li>Couche 300g</li><li>Couche 150g</li></ul>
+                <br>
+                <ul><li>Papel adhesivo con corte a registro</li></ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="trabajos">
+        <h2 class="section-title">NUESTROS TRABAJOS</h2>
+        <div class="works-slider-container">
+            <div class="works-slider-track" id="track"></div>
+        </div>
+    </section>
+
+    <section id="ubicacion">
+        <h2 class="section-title">SUCURSALES</h2>
+        <div class="location-grid">
+            <div>
+                <div class="location-info"><h4>Algarín (CDMX)</h4><p>Juan Hernández y Dávalos 72-E</p></div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.973412351234!2d-99.139632!3d19.408164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1feec908c6913%3A0x67302f3a60a0f0e0!2sJuan%20Hern%C3%A1ndez%20y%20D%C3%A1valos%2072%2C%20Algar%C3%ADn%2C%20Cuauht%C3%A9moc%2C%2006880%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1711910000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div>
+                <div class="location-info"><h4>Texcoco (Edomex)</h4><p>Fray Pedro de Gante 69</p></div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.350311231234!2d-98.883456!3d19.511234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e893456789ab%3A0x1234567890abcdef!2sFray%20Pedro%20de%20Gante%2069%2C%20Centro%2C%2056100%20Texcoco%20de%20Mora%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1711910000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer><p>© 2026 Solucionarte Publicidad | Estrategia por ARTEM</p></footer>
+
+    <script>
+        const track = document.getElementById('track');
+        const images = ['galeriasolucionarte.webp'];
+        for(let i = 2; i <= 25; i++) { images.push(`galeriasolucionarte-${i}.webp`); }
+        [...images, ...images].forEach(src => {
+            const img = document.createElement('img');
+            img.src = src; img.className = 'gallery-item';
+            img.onerror = () => img.style.display = 'none';
+            track.appendChild(img);
+        });
+
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        mobileMenu.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+        document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => { navMenu.classList.remove('active'); }));
+    </script>
 </body>
 </html>
