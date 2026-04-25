@@ -2,186 +2,173 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Solucionarte Publicidad | Gran Formato</title>
-    
-    <link rel="icon" type="image/png" href="Favicon 150px-01.png">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMV Habilitado | Conectores y Soluciones de Varilla</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --neon-magenta: #ff00ff; --neon-green: #39ff14; --dark-bg: #0a0a0c; }
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+        body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+        .bg-umv-navy { background-color: #0a1128; }
+        .text-umv-orange { color: #f97316; }
+        .bg-umv-orange { background-color: #f97316; }
         
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html, body { width: 100%; overflow-x: hidden; background-color: var(--dark-bg); color: white; font-family: 'Rajdhani', sans-serif; scroll-behavior: smooth; }
-        body { padding-top: 80px; }
-
-        /* --- NAVBAR --- */
-        nav { position: fixed; top: 0; left: 0; width: 100%; height: 80px; background: rgba(10, 10, 12, 0.95); display: flex; justify-content: space-between; align-items: center; padding: 0 5%; border-bottom: 2px solid var(--neon-magenta); z-index: 2000; }
-        .nav-logo { height: 60px; width: auto; }
-        .nav-links { display: flex; gap: 20px; }
-        .nav-links a { color: white; text-decoration: none; font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: bold; transition: 0.3s; text-transform: uppercase; }
-        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 2100; }
-        .menu-toggle span { width: 30px; height: 3px; background: var(--neon-green); transition: 0.3s; }
-
-        /* --- VIDEO RESPONSIVO (CORRECCIÓN) --- */
-        .video-section { 
-            width: 100%; 
-            line-height: 0; 
-            overflow: hidden; 
-            border-bottom: 2px solid var(--neon-magenta);
-            background: #000;
-        }
-        video { 
-            width: 100%; 
-            height: auto; /* Se ajusta proporcionalmente */
-            max-width: 100%;
-            display: block;
+        .parallax-hero {
+            background-image: linear-gradient(rgba(10, 17, 40, 0.7), rgba(10, 17, 40, 0.7)), url('fondo.webp');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
-        /* --- SERVICIOS --- */
-        .services-section { padding: 60px 5%; text-align: center; }
-        .services-title { font-family: 'Orbitron', sans-serif; font-size: 2.8rem; margin-bottom: 10px; text-transform: uppercase; line-height: 1.1; }
-        .services-subtitle { font-size: 1.5rem; color: var(--neon-green); margin-bottom: 50px; font-weight: 800; text-transform: uppercase; }
-
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; text-align: left; max-width: 1400px; margin: 0 auto; }
-        .service-column h3 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; border-bottom: 2px solid var(--neon-magenta); padding-bottom: 8px; margin-bottom: 15px; text-transform: uppercase; }
-        .sub-category { color: var(--neon-green); font-family: 'Orbitron', sans-serif; font-size: 0.9rem; margin-top: 18px; margin-bottom: 6px; display: block; font-weight: bold; }
-        .service-column ul { list-style: none; }
-        .service-column ul li { font-size: 1.15rem; font-weight: 600; line-height: 1.4; margin-bottom: 5px; }
-
-        /* --- SLIDER --- */
-        .section-title { text-align: center; font-family: 'Orbitron', sans-serif; color: var(--neon-green); margin: 60px 0 30px; font-size: 2.2rem; text-transform: uppercase; }
-        .works-slider-container { width: 100%; overflow: hidden; padding: 20px 0; background: rgba(255,255,255,0.03); border-top: 1px solid #222; }
-        .works-slider-track { display: flex; width: max-content; animation: scroll-works 70s linear infinite; }
-        .gallery-item { width: 280px; height: 280px; object-fit: cover; border-radius: 10px; border: 2px solid var(--neon-magenta); margin: 0 10px; flex-shrink: 0; }
-        @keyframes scroll-works { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-        /* --- UBICACIÓN --- */
-        .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; padding: 0 5%; margin-bottom: 60px; }
-        .map-container { width: 100%; height: 350px; border: 2px solid var(--neon-magenta); background: #111; overflow: hidden; }
-        .map-container iframe { width: 100%; height: 100%; border: 0; filter: invert(90%) hue-rotate(180deg); }
-        .location-info { text-align: center; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 10px; border: 1px solid #333; }
-
-        .wa-link { position: fixed; bottom: 25px; right: 25px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1500; }
-        footer { text-align: center; padding: 50px; background: #000; border-top: 1px solid #222; }
-
-        @media (max-width: 950px) {
-            .menu-toggle { display: flex; margin-right: 15px; }
-            .nav-links { position: fixed; top: 80px; right: -100%; width: 85%; height: calc(100vh - 80px); background: rgba(10, 10, 12, 0.98); flex-direction: column; align-items: center; padding-top: 50px; transition: 0.4s; border-left: 2px solid var(--neon-magenta); }
-            .nav-links.active { right: 0; }
-            .location-grid { grid-template-columns: 1fr; }
-            .services-grid { grid-template-columns: 1fr; padding: 0 5%; }
-            .services-title { font-size: 2.1rem; }
-        }
+        .img-gallery { object-fit: cover; width: 100%; height: 220px; border-radius: 8px; }
+        video { border-radius: 12px; width: 100%; height: auto; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
     </style>
 </head>
-<body>
+<body class="bg-white text-gray-900">
 
-    <nav>
-        <img src="Logotipo.png" class="nav-logo" alt="Solucionarte">
-        <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
-        <div class="nav-links" id="nav-menu">
-            <a href="#inicio">Inicio</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#trabajos">Trabajos</a>
-            <a href="#ubicacion">Ubicación</a>
-            <a href="#contacto">Contacto</a>
+    <nav class="bg-white text-umv-navy sticky top-0 z-50 shadow-md border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#inicio" class="flex items-center">
+                <img src="logo.png" alt="UMV Habilitado" class="h-12 md:h-16 w-auto">
+            </a>
+            <div class="hidden md:flex items-center space-x-10 text-xs font-bold uppercase tracking-widest">
+                <a href="#inicio" class="hover:text-umv-orange transition">Inicio</a>
+                <a href="#nosotros" class="hover:text-umv-orange transition">Nosotros</a>
+                <a href="#servicios" class="hover:text-umv-orange transition">Servicios</a>
+                <a href="#productos" class="hover:text-umv-orange transition">Productos</a>
+                <a href="https://wa.me/527293903803" class="bg-umv-orange text-white px-6 py-2 rounded-sm hover:bg-umv-navy transition shadow-lg">Cotizar</a>
+            </div>
+            <button id="menu-btn" class="md:hidden text-2xl text-umv-navy" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+        <div id="mobile-menu" class="hidden bg-white flex flex-col p-6 space-y-4 font-bold uppercase text-sm shadow-xl">
+            <a href="#inicio" onclick="toggleMenu()">Inicio</a>
+            <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
+            <a href="#servicios" onclick="toggleMenu()">Servicios</a>
+            <a href="#productos" onclick="toggleMenu()">Productos</a>
+            <a href="https://wa.me/527293903803" onclick="toggleMenu()" class="text-umv-orange">Cotizar</a>
         </div>
     </nav>
 
-    <a href="https://wa.me/525638863684" class="wa-link" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35"></a>
-
-    <section id="inicio" class="video-section">
-        <video autoplay muted loop playsinline>
-            <source src="web.mp4" type="video/mp4">
-        </video>
-    </section>
-
-    <section id="servicios" class="services-section">
-        <h2 class="services-title">Impresión en gran formato</h2>
-        <p class="services-subtitle">y alta resolución</p>
-        
-        <div class="services-grid">
-            <div class="service-column">
-                <h3>Impresión en alta resolución y gran formato</h3>
-                <ul><li>Lona</li><li>Canvas</li><li>Microperforado</li><li>Estático</li><li>Mesh</li></ul>
-                <span class="sub-category">RÍGIDOS</span>
-                <ul><li>Coroplast</li><li>Trovicel</li><li>Estireno</li></ul>
-                <span class="sub-category">DTF</span>
-                <ul><li>Textil</li><li>UV</li></ul>
-                <span class="sub-category">STICKERS</span>
-                <ul><li>Vinil</li><li>Transparente</li></ul>
-            </div>
-
-            <div class="service-column">
-                <h3>Productos</h3>
-                <ul><li>Anuncio LED</li><li>Letras 3D</li><li>Cajas de luz</li><li>Banners</li><li>Rollups</li><li>Arañas</li></ul>
-                <span class="sub-category">ESTAMPADOS Y SUBLIMADOS</span>
-                <ul><li>Playeras</li><li>Gorras</li><li>Tazas</li><li>Vasos</li><li>Termos</li><li>Pelotas anti estrés</li></ul>
-            </div>
-
-            <div class="service-column">
-                <h3>Servicios</h3>
-                <ul><li>Corte y grabado láser</li><li>Corte de vinil (60 y 1.20 de ancho)</li></ul>
-            </div>
-
-            <div class="service-column">
-                <h3>Offset</h3>
-                <ul><li>Volantes</li><li>Tarjetas</li><li>Recetarios</li><li>Trípticos</li></ul>
-            </div>
-
-            <div class="service-column">
-                <h3>Digital</h3>
-                <span class="sub-category">TABLOIDE REBASADO</span>
-                <ul><li>Couche 300g</li><li>Couche 150g</li></ul>
-                <br>
-                <ul><li>Papel adhesivo con corte a registro</li></ul>
-            </div>
+    <header id="inicio" class="relative h-[60vh] flex items-center justify-center text-center text-white parallax-hero">
+        <div class="relative z-10 px-4">
+            <h1 class="text-5xl md:text-7xl font-black uppercase mb-4 leading-none tracking-tighter">
+                Conexiones de <span class="text-umv-orange">Varilla</span>
+            </h1>
+            <p class="text-lg md:text-2xl font-light">Soluciones de ingeniería y habilitado UMV Habilitado.</p>
         </div>
-    </section>
+    </header>
 
-    <section id="trabajos">
-        <h2 class="section-title">NUESTROS TRABAJOS</h2>
-        <div class="works-slider-container">
-            <div class="works-slider-track" id="track"></div>
-        </div>
-    </section>
-
-    <section id="ubicacion">
-        <h2 class="section-title">SUCURSALES</h2>
-        <div class="location-grid">
-            <div>
-                <div class="location-info"><h4>Algarín (CDMX)</h4><p>Juan Hernández y Dávalos 72-E</p></div>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.973412351234!2d-99.139632!3d19.408164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1feec908c6913%3A0x67302f3a60a0f0e0!2sJuan%20Hern%C3%A1ndez%20y%20D%C3%A1valos%2072%2C%20Algar%C3%ADn%2C%20Cuauht%C3%A9moc%2C%2006880%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1711910000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h3 class="text-2xl font-black uppercase text-umv-navy mb-10 border-l-8 border-umv-orange pl-4">Venta y Renta de Equipos</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div>
+                    <img src="equipos1.webp" class="img-gallery shadow-lg mb-4" alt="Equipo 1">
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        Máquina dobladora de varilla con capacidad de doblez desde 3/8 hasta 1 1/2” para venta o renta
+                    </p>
                 </div>
-            </div>
-            <div>
-                <div class="location-info"><h4>Texcoco (Edomex)</h4><p>Fray Pedro de Gante 69</p></div>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.350311231234!2d-98.883456!3d19.511234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e893456789ab%3A0x1234567890abcdef!2sFray%20Pedro%20de%20Gante%2069%2C%20Centro%2C%2056100%20Texcoco%20de%20Mora%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1711910000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+                <div>
+                    <img src="equipos2.webp" class="img-gallery shadow-lg mb-4" alt="Equipo 2">
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        Máquina dobladora de varilla con capacidad de doblez desde 3/8 hasta 1 1/2” para venta o renta <br>
+                        Máquina cortadora con Sierra especial para varilla corrugada desde 3/8 hasta 2 1/4” nueva para venta o renta
+                    </p>
+                </div>
+                <div>
+                    <img src="equipos3.webp" class="img-gallery shadow-lg mb-4" alt="Equipo 3">
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        Máquina Roscadora de varilla con capacidad de roscado de 1/2” - 2 1/4” para venta o renta 100% nueva con longitud máxima de roscado de 300 mm
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer><p>© 2026 Solucionarte Publicidad | Estrategia por ARTEM</p></footer>
+    <section id="productos" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h3 class="text-2xl font-black uppercase text-umv-navy mb-10 border-l-8 border-umv-navy pl-4">Nuestros Productos</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <img src="productos.webp" class="img-gallery shadow-md" alt="Producto">
+                <img src="productos1.webp" class="img-gallery shadow-md" alt="Producto 1">
+                
+                <div class="space-y-2">
+                    <img src="productos2.webp" class="img-gallery shadow-md" alt="Producto 2">
+                    <p class="text-[10px] text-gray-700 leading-tight uppercase font-bold">
+                        Fabricación de Conector mecánico roscado y sus variantes transiciones tipo 2 para varilla corrugada con resistencia a la tensión sobre norma ASI318 Medidas desde número 4 hasta número 12
+                    </p>
+                </div>
+
+                <img src="productos3.webp" class="img-gallery shadow-md" alt="Producto 3">
+                <img src="productos4.webp" class="img-gallery shadow-md" alt="Producto 4">
+                <img src="productos5.webp" class="img-gallery shadow-md" alt="Producto 5">
+                <img src="productos6.webp" class="img-gallery shadow-md" alt="Producto 6">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <img src="conector1.webp" class="rounded-xl shadow-lg h-64 w-full object-cover" alt="conector 1">
+                <img src="conector2.webp" class="rounded-xl shadow-lg h-64 w-full object-cover" alt="conector 2">
+            </div>
+            <div class="bg-umv-navy text-white p-8 md:p-12 rounded-2xl shadow-xl">
+                <h3 class="text-xl md:text-2xl font-black uppercase text-umv-orange mb-4">FABRICACIÓN CONECTOR DE TERMINACIÓN PARA VARILLA CORRUGADA</h3>
+                <p class="font-bold text-lg mb-6">Medidas desde 3/4" hasta 2 1/4"</p>
+                <p class="text-sm text-gray-300 mb-8 leading-relaxed">
+                    Recuerda, somos fabricantes Sin duda Una pieza diseñada para anclar varilla Sin necesidad de Ganchos o dobleces. Es muy usado en construcción Estructural cuando quieres algo más Limpio, resistente y eficiente.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6 text-xs text-gray-200">
+                    <div class="space-y-3">
+                        <p><strong>1. Ahorro de espacio:</strong> Ya no necesitas doblar la varilla. Ideal para columnas, losas o zonas congestionadas.</p>
+                        <p><strong>2. Mayor rapidez:</strong> Instalación más veloz que ganchos manuales. Menos mano de obra y muchos menos errores.</p>
+                        <p><strong>3. Ahorro de material:</strong> Usas varillas más cortas. Reduces desperdicio de acero.</p>
+                    </div>
+                    <div class="space-y-3">
+                        <p><strong>4. Mejor desempeño estructural:</strong> Anclaje más uniforme y confiable. Sobrepasa normas estructurales exigentes.</p>
+                        <p><strong>5. Trabajo más limpio:</strong> Menos enredos de acero. Mejor acomodo del refuerzo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h3 class="text-center text-white text-2xl font-black uppercase mb-12">Nuestros Procesos</h3>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="text-center">
+                    <p class="text-umv-orange font-bold uppercase text-xs mb-4">Roscadora de Varilla</p>
+                    <video controls muted loop><source src="roscadoradevarilla.mp4" type="video/mp4"></video>
+                </div>
+                <div class="text-center">
+                    <p class="text-umv-orange font-bold uppercase text-xs mb-4">Conectores Tipo 2</p>
+                    <video controls muted loop><source src="conectores.mp4" type="video/mp4"></video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-umv-navy text-white py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-8">
+            <img src="logo.png" alt="UMV" class="h-10 brightness-0 invert">
+            <p class="text-[10px] text-gray-500 uppercase tracking-widest">© 2026 UMV HABILITADO | MÉXICO</p>
+            <div class="flex space-x-4">
+                <a href="#" class="text-xl hover:text-umv-orange"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-xl hover:text-umv-orange"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/527293903803" class="fixed bottom-8 right-8 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl z-50">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
-        const track = document.getElementById('track');
-        const images = ['galeriasolucionarte.webp'];
-        for(let i = 2; i <= 25; i++) { images.push(`galeriasolucionarte-${i}.webp`); }
-        [...images, ...images].forEach(src => {
-            const img = document.createElement('img');
-            img.src = src; img.className = 'gallery-item';
-            img.onerror = () => img.style.display = 'none';
-            track.appendChild(img);
-        });
-
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navMenu = document.getElementById('nav-menu');
-        mobileMenu.addEventListener('click', () => { navMenu.classList.toggle('active'); });
-        document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => { navMenu.classList.remove('active'); }));
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
     </script>
 </body>
 </html>
