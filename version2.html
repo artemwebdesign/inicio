@@ -22,15 +22,6 @@
             background-size: cover;
         }
 
-        .section-parallax-bg {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.85)), url('fondo.webp');
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
-        }
-
-        .hover-card { transition: all 0.3s ease; }
-        .hover-card:hover { transform: translateY(-10px); }
         .img-gallery { object-fit: cover; width: 100%; height: 220px; border-radius: 8px; }
         video { border-radius: 12px; width: 100%; height: auto; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
     </style>
@@ -49,7 +40,7 @@
                 <a href="#productos" class="hover:text-umv-orange transition">Productos</a>
                 <a href="https://wa.me/527293903803" class="bg-umv-orange text-white px-6 py-2 rounded-sm hover:bg-umv-navy transition shadow-lg">Cotizar</a>
             </div>
-            <button id="menu-btn" class="md:hidden text-2xl text-umv-navy"><i class="fas fa-bars"></i></button>
+            <button id="menu-btn" class="md:hidden text-2xl text-umv-navy" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
         </div>
         <div id="mobile-menu" class="hidden bg-white flex flex-col p-6 space-y-4 font-bold uppercase text-sm shadow-xl">
             <a href="#inicio" onclick="toggleMenu()">Inicio</a>
@@ -62,59 +53,34 @@
 
     <header id="inicio" class="relative h-[60vh] flex items-center justify-center text-center text-white parallax-hero">
         <div class="relative z-10 px-4">
-            <h1 class="text-5xl md:text-7xl font-black uppercase mb-4 leading-none">
+            <h1 class="text-5xl md:text-7xl font-black uppercase mb-4 leading-none tracking-tighter">
                 Conexiones de <span class="text-umv-orange">Varilla</span>
             </h1>
-            <p class="text-lg md:text-2xl font-light">Soluciones de ingeniería y habilitado en obra.</p>
+            <p class="text-lg md:text-2xl font-light">Soluciones de ingeniería y habilitado UMV Habilitado.</p>
         </div>
     </header>
 
-    <section id="servicios" class="py-20 bg-gray-50 section-parallax-bg">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-black text-umv-navy uppercase">Servicios Especializados</h2>
-            </div>
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="bg-white p-6 shadow-lg border-t-4 border-umv-orange hover-card">
-                    <h3 class="font-black text-sm mb-2 uppercase">Acopladores Mecánicos</h3>
-                    <p class="text-xs text-gray-600">Sistemas Tipo II para máxima seguridad estructural.</p>
-                </div>
-                <div class="bg-white p-6 shadow-lg border-t-4 border-umv-navy hover-card">
-                    <h3 class="font-black text-sm mb-2 uppercase">Roscado en Obra</h3>
-                    <p class="text-xs text-gray-600">Procesos de roscado por compresión directo en proyecto.</p>
-                </div>
-                <div class="bg-white p-6 shadow-lg border-t-4 border-umv-orange hover-card">
-                    <h3 class="font-black text-sm mb-2 uppercase">Venta de Equipo</h3>
-                    <p class="text-xs text-gray-600">Roscadoras y cortadoras industriales para habilitado.</p>
-                </div>
-                <div class="bg-white p-6 shadow-lg border-t-4 border-umv-navy hover-card">
-                    <h3 class="font-black text-sm mb-2 uppercase">Anclas a Medida</h3>
-                    <p class="text-xs text-gray-600">Diseño y producción de anclas para cimentación.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <h3 class="text-2xl font-black uppercase text-umv-navy mb-10 border-l-8 border-umv-orange pl-4">Equipos para Venta o Renta</h3>
+            <h3 class="text-2xl font-black uppercase text-umv-navy mb-10 border-l-8 border-umv-orange pl-4">Venta y Renta de Equipos</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <div>
                     <img src="equipos1.webp" class="img-gallery shadow-lg mb-4" alt="Equipo 1">
-                    <p class="text-sm text-gray-700 leading-relaxed font-medium">
-                        Máquina dobladora de varilla con capacidad de doblez desde 3/8 hasta 1 1/2” para venta o renta.
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        Máquina dobladora de varilla con capacidad de doblez desde 3/8 hasta 1 1/2” para venta o renta
                     </p>
                 </div>
                 <div>
                     <img src="equipos2.webp" class="img-gallery shadow-lg mb-4" alt="Equipo 2">
-                    <p class="text-sm text-gray-700 leading-relaxed font-medium">
-                        Máquina dobladora de varilla con capacidad de doblez desde 3/8 hasta 1 1/2” para venta o renta. Máquina cortadora con Sierra especial para varilla corrugada desde 3/8 hasta 2 1/4” nueva para venta o renta.
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        Máquina dobladora de varilla con capacidad de doblez desde 3/8 hasta 1 1/2” para venta o renta <br>
+                        Máquina cortadora con Sierra especial para varilla corrugada desde 3/8 hasta 2 1/4” nueva para venta o renta
                     </p>
                 </div>
                 <div>
                     <img src="equipos3.webp" class="img-gallery shadow-lg mb-4" alt="Equipo 3">
-                    <p class="text-sm text-gray-700 leading-relaxed font-medium">
-                        Máquina Roscadora de varilla con capacidad de roscado de 1/2” - 2 1/4” para venta o renta 100% nueva con longitud máxima de roscado de 300 mm.
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        Máquina Roscadora de varilla con capacidad de roscado de 1/2” - 2 1/4” para venta o renta 100% nueva con longitud máxima de roscado de 300 mm
                     </p>
                 </div>
             </div>
@@ -130,8 +96,8 @@
                 
                 <div class="space-y-2">
                     <img src="productos2.webp" class="img-gallery shadow-md" alt="Producto 2">
-                    <p class="text-[10px] text-gray-600 leading-tight uppercase font-bold">
-                        Fabricación de Conector mecánico roscado y sus variantes transiciones tipo 2 para varilla corrugada con resistencia a la tensión sobre norma ASI318 Medidas desde número 4 hasta número 12.
+                    <p class="text-[10px] text-gray-700 leading-tight uppercase font-bold">
+                        Fabricación de Conector mecánico roscado y sus variantes transiciones tipo 2 para varilla corrugada con resistencia a la tensión sobre norma ASI318 Medidas desde número 4 hasta número 12
                     </p>
                 </div>
 
@@ -145,25 +111,25 @@
 
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <img src="conector1.webp" class="rounded-xl shadow-xl h-64 w-full object-cover" alt="Conector 1">
-                <img src="conector2.webp" class="rounded-xl shadow-xl h-64 w-full object-cover" alt="Conector 2">
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <img src="conector1.webp" class="rounded-xl shadow-lg h-64 w-full object-cover" alt="conector 1">
+                <img src="conector2.webp" class="rounded-xl shadow-lg h-64 w-full object-cover" alt="conector 2">
             </div>
-            <div class="max-w-4xl mx-auto bg-umv-navy text-white p-10 rounded-2xl">
-                <h3 class="text-2xl font-black uppercase text-umv-orange mb-6">FABRICACIÓN CONECTOR DE TERMINACIÓN PARA VARILLA CORRUGADA</h3>
+            <div class="bg-umv-navy text-white p-8 md:p-12 rounded-2xl shadow-xl">
+                <h3 class="text-xl md:text-2xl font-black uppercase text-umv-orange mb-4">FABRICACIÓN CONECTOR DE TERMINACIÓN PARA VARILLA CORRUGADA</h3>
                 <p class="font-bold text-lg mb-6">Medidas desde 3/4" hasta 2 1/4"</p>
                 <p class="text-sm text-gray-300 mb-8 leading-relaxed">
                     Recuerda, somos fabricantes Sin duda Una pieza diseñada para anclar varilla Sin necesidad de Ganchos o dobleces. Es muy usado en construcción Estructural cuando quieres algo más Limpio, resistente y eficiente.
                 </p>
-                <div class="grid md:grid-cols-2 gap-6 text-sm border-t border-gray-700 pt-8">
-                    <div class="space-y-2">
-                        <p><strong>1. Ahorro de espacio:</strong> Ya no necesitas doblar la varilla. Ideal para zonas congestionadas.</p>
-                        <p><strong>2. Mayor rapidez:</strong> Instalación más veloz que ganchos manuales. Menos mano de obra.</p>
-                        <p><strong>3. Ahorro de material:</strong> Usas varillas más cortas y reduces desperdicio.</p>
+                <div class="grid md:grid-cols-2 gap-6 text-xs text-gray-200">
+                    <div class="space-y-3">
+                        <p><strong>1. Ahorro de espacio:</strong> Ya no necesitas doblar la varilla. Ideal para columnas, losas o zonas congestionadas.</p>
+                        <p><strong>2. Mayor rapidez:</strong> Instalación más veloz que ganchos manuales. Menos mano de obra y muchos menos errores.</p>
+                        <p><strong>3. Ahorro de material:</strong> Usas varillas más cortas. Reduces desperdicio de acero.</p>
                     </div>
-                    <div class="space-y-2">
-                        <p><strong>4. Mejor desempeño:</strong> Anclaje uniforme que sobrepasa normas exigentes.</p>
-                        <p><strong>5. Trabajo limpio:</strong> Menos enredos de acero y mejor acomodo del refuerzo.</p>
+                    <div class="space-y-3">
+                        <p><strong>4. Mejor desempeño estructural:</strong> Anclaje más uniforme y confiable. Sobrepasa normas estructurales exigentes.</p>
+                        <p><strong>5. Trabajo más limpio:</strong> Menos enredos de acero. Mejor acomodo del refuerzo.</p>
                     </div>
                 </div>
             </div>
@@ -172,41 +138,37 @@
 
     <section class="py-20 bg-gray-900">
         <div class="container mx-auto px-6">
-            <h3 class="text-center text-white text-2xl font-black uppercase mb-12">Procesos en Acción</h3>
+            <h3 class="text-center text-white text-2xl font-black uppercase mb-12">Nuestros Procesos</h3>
             <div class="grid md:grid-cols-2 gap-12">
-                <div class="space-y-4">
-                    <p class="text-umv-orange font-bold uppercase text-xs text-center tracking-widest">Roscadora de Varilla</p>
-                    <video controls muted loop>
-                        <source src="roscadoradevarilla.mp4" type="video/mp4">
-                    </video>
+                <div class="text-center">
+                    <p class="text-umv-orange font-bold uppercase text-xs mb-4">Roscadora de Varilla</p>
+                    <video controls muted loop><source src="roscadoradevarilla.mp4" type="video/mp4"></video>
                 </div>
-                <div class="space-y-4">
-                    <p class="text-umv-orange font-bold uppercase text-xs text-center tracking-widest">Instalación de Conectores</p>
-                    <video controls muted loop>
-                        <source src="conectores.mp4" type="video/mp4">
-                    </video>
+                <div class="text-center">
+                    <p class="text-umv-orange font-bold uppercase text-xs mb-4">Conectores Tipo 2</p>
+                    <video controls muted loop><source src="conectores.mp4" type="video/mp4"></video>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-umv-navy text-white py-12">
+    <footer class="bg-umv-navy text-white py-12 border-t border-gray-800">
         <div class="container mx-auto px-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-8">
             <img src="logo.png" alt="UMV" class="h-10 brightness-0 invert">
             <p class="text-[10px] text-gray-500 uppercase tracking-widest">© 2026 UMV HABILITADO | MÉXICO</p>
-            <a href="https://wa.me/527293903803" class="bg-umv-orange px-8 py-3 font-black text-xs uppercase hover:bg-white hover:text-umv-navy transition">Cotizar Ahora</a>
+            <div class="flex space-x-4">
+                <a href="#" class="text-xl hover:text-umv-orange"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-xl hover:text-umv-orange"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/527293903803" class="fixed bottom-8 right-8 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl z-50 hover:scale-110 transition">
+    <a href="https://wa.me/527293903803" class="fixed bottom-8 right-8 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl z-50">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        function toggleMenu() { mobileMenu.classList.toggle('hidden'); }
-        menuBtn.addEventListener('click', toggleMenu);
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
     </script>
 </body>
 </html>
