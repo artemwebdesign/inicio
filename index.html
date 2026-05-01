@@ -23,20 +23,9 @@
         .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 2100; }
         .menu-toggle span { width: 30px; height: 3px; background: var(--neon-green); transition: 0.3s; }
 
-        /* --- VIDEO RESPONSIVO (CORRECCIÓN) --- */
-        .video-section { 
-            width: 100%; 
-            line-height: 0; 
-            overflow: hidden; 
-            border-bottom: 2px solid var(--neon-magenta);
-            background: #000;
-        }
-        video { 
-            width: 100%; 
-            height: auto; /* Se ajusta proporcionalmente */
-            max-width: 100%;
-            display: block;
-        }
+        /* --- VIDEO SECCIÓN --- */
+        .video-section { width: 100%; line-height: 0; overflow: hidden; border-bottom: 2px solid var(--neon-magenta); background: #000; }
+        video { width: 100%; height: auto; max-width: 100%; display: block; }
 
         /* --- SERVICIOS --- */
         .services-section { padding: 60px 5%; text-align: center; }
@@ -63,7 +52,25 @@
         .location-info { text-align: center; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 10px; border: 1px solid #333; }
 
         .wa-link { position: fixed; bottom: 25px; right: 25px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1500; }
+        
+        /* --- FOOTER Y LEGALES --- */
         footer { text-align: center; padding: 50px; background: #000; border-top: 1px solid #222; }
+        .footer-legal { margin-bottom: 20px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-legal a { color: #888; text-decoration: none; margin: 0 10px; transition: 0.3s; }
+        .footer-legal a:hover { color: var(--neon-magenta); }
+
+        /* --- MODAL Y BANNER --- */
+        .legal-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 3000; display: none; align-items: center; justify-content: center; padding: 20px; backdrop-blur: 8px; }
+        .legal-content { background: #111; border: 1px solid var(--neon-magenta); width: 100%; max-width: 700px; max-height: 80vh; overflow-y: auto; border-radius: 4px; padding: 40px; position: relative; box-shadow: 0 0 40px rgba(255, 0, 255, 0.15); }
+        .legal-close { position: absolute; top: 15px; right: 20px; color: var(--neon-magenta); cursor: pointer; font-size: 2rem; font-family: 'Orbitron', sans-serif; }
+        .legal-content h2 { font-family: 'Orbitron', sans-serif; color: var(--neon-green); margin-bottom: 20px; text-transform: uppercase; font-size: 1.4rem; letter-spacing: 2px; }
+        .legal-text { font-size: 0.9rem; line-height: 1.7; color: #bbb; text-align: left; }
+        .legal-text p { margin-bottom: 15px; }
+
+        #cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; background: #0a0a0c; border-top: 2px solid var(--neon-green); padding: 25px; z-index: 2500; display: none; box-shadow: 0 -10px 30px rgba(0,0,0,0.5); }
+        .cookie-flex { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; gap: 30px; flex-wrap: wrap; }
+        .cookie-btn { background: var(--neon-green); color: black; border: none; padding: 12px 30px; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; font-weight: 900; cursor: pointer; text-transform: uppercase; transition: 0.3s; letter-spacing: 1px; }
+        .cookie-btn:hover { background: white; box-shadow: 0 0 20px var(--neon-green); }
 
         @media (max-width: 950px) {
             .menu-toggle { display: flex; margin-right: 15px; }
@@ -72,6 +79,7 @@
             .location-grid { grid-template-columns: 1fr; }
             .services-grid { grid-template-columns: 1fr; padding: 0 5%; }
             .services-title { font-size: 2.1rem; }
+            .cookie-flex { justify-content: center; text-align: center; }
         }
     </style>
 </head>
@@ -89,7 +97,9 @@
         </div>
     </nav>
 
-    <a href="https://wa.me/525638863684" class="wa-link" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35"></a>
+    <a href="https://wa.me/525638863684" class="wa-link" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WhatsApp">
+    </a>
 
     <section id="inicio" class="video-section">
         <video autoplay muted loop playsinline>
@@ -103,7 +113,7 @@
         
         <div class="services-grid">
             <div class="service-column">
-                <h3>Impresión en alta resolución y gran formato</h3>
+                <h3>Gran Formato</h3>
                 <ul><li>Lona</li><li>Canvas</li><li>Microperforado</li><li>Estático</li><li>Mesh</li></ul>
                 <span class="sub-category">RÍGIDOS</span>
                 <ul><li>Coroplast</li><li>Trovicel</li><li>Estireno</li></ul>
@@ -116,13 +126,13 @@
             <div class="service-column">
                 <h3>Productos</h3>
                 <ul><li>Anuncio LED</li><li>Letras 3D</li><li>Cajas de luz</li><li>Banners</li><li>Rollups</li><li>Arañas</li></ul>
-                <span class="sub-category">ESTAMPADOS Y SUBLIMADOS</span>
-                <ul><li>Playeras</li><li>Gorras</li><li>Tazas</li><li>Vasos</li><li>Termos</li><li>Pelotas anti estrés</li></ul>
+                <span class="sub-category">ESTAMPADOS</span>
+                <ul><li>Playeras</li><li>Gorras</li><li>Tazas</li><li>Termos</li></ul>
             </div>
 
             <div class="service-column">
                 <h3>Servicios</h3>
-                <ul><li>Corte y grabado láser</li><li>Corte de vinil (60 y 1.20 de ancho)</li></ul>
+                <ul><li>Corte y grabado láser</li><li>Corte de vinil</li></ul>
             </div>
 
             <div class="service-column">
@@ -132,10 +142,8 @@
 
             <div class="service-column">
                 <h3>Digital</h3>
-                <span class="sub-category">TABLOIDE REBASADO</span>
-                <ul><li>Couche 300g</li><li>Couche 150g</li></ul>
-                <br>
-                <ul><li>Papel adhesivo con corte a registro</li></ul>
+                <span class="sub-category">TABLOIDE</span>
+                <ul><li>Couche 300g / 150g</li><li>Papel adhesivo con corte</li></ul>
             </div>
         </div>
     </section>
@@ -165,9 +173,34 @@
         </div>
     </section>
 
-    <footer><p>© 2026 Solucionarte Publicidad | Estrategia por ARTEM</p></footer>
+    <footer>
+        <div class="footer-legal">
+            <a href="javascript:void(0)" onclick="openLegal('privacidad')">Aviso de Privacidad</a>
+            <a href="javascript:void(0)" onclick="openLegal('terminos')">Términos y Condiciones</a>
+            <a href="javascript:void(0)" onclick="openLegal('cookies')">Política de Cookies</a>
+        </div>
+        <p>© 2026 Solucionarte Publicidad | Estrategia por ARTEM</p>
+    </footer>
+
+    <!-- MODAL LEGAL -->
+    <div id="legal-modal" class="legal-modal">
+        <div class="legal-content">
+            <span class="legal-close" onclick="closeLegal()">&times;</span>
+            <h2 id="legal-title"></h2>
+            <div id="legal-body" class="legal-text"></div>
+        </div>
+    </div>
+
+    <!-- BANNER DE COOKIES -->
+    <div id="cookie-banner">
+        <div class="cookie-flex">
+            <p style="font-size: 0.8rem; letter-spacing: 0.5px;">Este sitio utiliza cookies para mejorar tu experiencia técnica y de seguridad. <a href="javascript:void(0)" onclick="openLegal('cookies')" style="color: var(--neon-magenta); text-decoration: underline;">Más información</a>.</p>
+            <button onclick="acceptCookies()" class="cookie-btn">Aceptar</button>
+        </div>
+    </div>
 
     <script>
+        // Slider de trabajos
         const track = document.getElementById('track');
         const images = ['galeriasolucionarte.webp'];
         for(let i = 2; i <= 25; i++) { images.push(`galeriasolucionarte-${i}.webp`); }
@@ -178,10 +211,59 @@
             track.appendChild(img);
         });
 
+        // Menú móvil
         const mobileMenu = document.getElementById('mobile-menu');
         const navMenu = document.getElementById('nav-menu');
         mobileMenu.addEventListener('click', () => { navMenu.classList.toggle('active'); });
         document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => { navMenu.classList.remove('active'); }));
+
+        // Lógica Legal
+        const legalTexts = {
+            privacidad: {
+                title: "Aviso de Privacidad",
+                body: `<p><strong>Solucionarte Publicidad</strong>, con domicilio en Algarín (CDMX) y Texcoco (Edomex), es responsable del tratamiento de sus datos personales.</p>
+                       <p>Recabamos sus datos únicamente para: cotizar servicios de impresión de gran formato, gestionar pedidos de artículos publicitarios y dar seguimiento a su entrega.</p>
+                       <p>Su información no será transferida a terceros, salvo por requerimientos técnicos de la plataforma (Cloudflare/WhatsApp).</p>`
+            },
+            terminos: {
+                title: "Términos y Condiciones",
+                body: `<p>Al contratar nuestros servicios, el cliente reconoce que cuenta con los derechos de autor de las imágenes enviadas para impresión.</p>
+                       <p><strong>Producción:</strong> Los tiempos de entrega varían según el producto (Lona, LED, Offset). Cotizaciones válidas por 15 días.</p>
+                       <p><strong>Uso del Sitio:</strong> El diseño y contenido de este portal son propiedad de Solucionarte Publicidad.</p>`
+            },
+            cookies: {
+                title: "Política de Cookies",
+                body: `<p>Utilizamos cookies técnicas gestionadas a través de Cloudflare para optimizar la velocidad y seguridad del sitio.</p>
+                       <p>No utilizamos cookies de rastreo publicitario masivo. Usted puede desactivarlas en la configuración de su navegador.</p>`
+            }
+        };
+
+        function openLegal(type) {
+            document.getElementById('legal-title').innerText = legalTexts[type].title;
+            document.getElementById('legal-body').innerHTML = legalTexts[type].body;
+            document.getElementById('legal-modal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLegal() {
+            document.getElementById('legal-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('solucionarte-consent', 'true');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+
+        window.onload = function() {
+            if (!localStorage.getItem('solucionarte-consent')) {
+                document.getElementById('cookie-banner').style.display = 'block';
+            }
+        };
+
+        window.onclick = function(e) {
+            if (e.target == document.getElementById('legal-modal')) closeLegal();
+        };
     </script>
 </body>
 </html>
